@@ -1,0 +1,324 @@
+//imported fonts : rye, roboto mono
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rye&display=swap');
+
+//variables
+$size: 20px;
+$header-text: "Rye", serif;
+$text: "Roboto Mono", monospace;
+
+:root
+{
+    //colour schemes
+    //main
+    --rich-black: #0E131F;
+    --alice-blue: #DFE5F1;
+    //dark mode
+    --penn-blue: #171B4F;
+    --ivory: #F1F4E4;
+    --dark-moss-green: #4F4F1B;
+    //light mode
+    --periwinkle: #B0B8E8;
+    --sage: #B0B79A;
+    --citron: #BFBF6F;
+
+    //other schemes
+    font-size: $size;
+    font-family: $text;
+}
+@mixin theme($bg, $text)
+{
+    background-color: $bg;
+    color: $text;
+}
+
+body
+{
+    &.light-mode
+    {
+        @include theme(var(--alice-blue), var(--rich-black));
+        .btn
+        {
+            @include theme(var(--periwinkle), var(--rich-black));
+        }
+        a
+        {
+            color: var(--rich-black);
+        }
+        .pop-up
+        {
+            @include theme(var(--citron), var(--rich-black));
+        }
+        .side-bar
+        {
+            @include theme(var(--periwinkle), var(--rich-black));
+        }
+        .books
+        {
+            @include theme(var(--citron), var(--rich-black));
+            .last-read, .book-shelf-content
+            {
+                @include theme(var(--ivory), var(--rich-black));
+            }
+        }
+        .quotes
+        {
+            .underline
+            {
+                background-color: var(--rich-black);
+            }
+            .quotes-content
+            {
+                @include theme(var(--sage), var(--rich-black));
+                .quote
+                {
+                    @include theme(var(--ivory), var(--rich-black));
+                    border: 1px solid var(--alice-blue);
+                }
+            }
+        }
+        .attribution
+        {
+            background-color: var(--citron);
+        }
+    }
+    &.dark-mode
+    {
+        @include theme(var(--rich-black), var(--alice-blue));
+        .btn
+        {
+            @include theme(var(--ivory), var(--rich-black));
+        }
+        a
+        {
+            color: var(--alice-blue);
+        }
+        .pop-up
+        {
+            @include theme(var(--dark-moss-green), var(--alice-blue));
+        }
+        .side-bar
+        {
+            @include theme(var(--penn-blue), var(--alice-blue));
+        }
+        .books
+        {
+            @include theme(var(--dark-moss-green), var(--alice-blue));
+            .last-read, .book-shelf-content
+            {
+                @include theme(var(--ivory), var(--rich-black));
+            }
+        }
+        .quotes
+        {
+            .underline
+            {  
+                background-color: var(--alice-blue);
+            }
+            .quotes-content
+            {
+                @include theme(var(--dark-moss-green), var(--alice-blue));
+                .quote
+                {
+                    @include theme(var(--rich-black), var(--alice-blue));
+                    border: 1px solid var(--penn-blue);
+                }
+            }
+        }
+        .attribution
+        {
+            background-color: var(--dark-moss-green);
+        }
+    }
+    margin: 0;
+    padding: 0;
+    border: none;
+    .heading, .sub-heading
+    {
+        font-family: $header-text;
+    }
+}
+
+//common classes
+%flex-center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+%grid
+{
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    row-gap: 10px;
+}
+.hide
+{
+    display: none;
+}
+.show
+{
+    display: block;
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+.btn
+{
+    &:hover
+    {
+        background-color: var(--penn-blue);
+        color: var(--alice-blue);
+        transition: all 0.3s ;
+    }
+    &:focus
+    {
+        background-color: var(--alice-blue);
+    }
+}
+
+.pop-up
+{
+    @extend %flex-center;
+    flex-direction: column;
+    *
+    {
+        padding: 5px;
+        margin: 10px 0;
+    }
+    .btn
+    {
+        border: none;
+        padding: 10px 30px;
+    }
+    margin: 30vh 35vw;
+}
+ 
+
+.main
+{
+    display: flex;
+}
+.side-bar
+{
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    height: 137vw;
+    text-align: center;
+    *
+    {
+        padding: 13.5px 10px;
+    }
+    .img-btn
+    {
+        padding: 20px;
+    }
+    .img
+    {
+        width: ($size*3);
+        height: ($size*3);
+    }
+}
+.main-content
+{
+    .header
+    {
+        padding-left: 5vw;
+        padding-top: 2vw;
+    }
+    .books
+    {
+        margin: 5vw;
+        display: flex;
+        flex-direction: row;
+        gap: $size;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.books
+{
+    .last-read
+    {
+        margin: 0 5vw 0 4vw;
+        padding: $size;
+    }
+    .book-content
+    {
+        .sub-heading
+        {
+            margin-bottom: 4vh;
+        }
+    }
+    .cover-img
+    {
+        width: 25vh;
+        padding: 10px;
+    }
+    .book-shelf-content
+    {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        *
+        {
+            padding-top: 10px;
+        }
+    }
+}
+
+.quotes
+{
+    padding: 3vw;
+    margin: 0 0 3vw 3vw;
+    .header-text-quotes
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: $size;
+        .underline
+        {
+            width: 140vh;
+            height: 5px;
+        }
+    }
+    .quotes-content
+    {
+        padding: 10px;
+        @extend %grid;
+        .quote
+        {
+            padding: 1vw;
+        }
+    }
+}
+
+
+
+.attribution
+{
+    padding: 10px;
+    .sub-heading
+    {
+        margin: 1vw 0 1vw 23vw;
+    }
+}
+
+
+//my viewport -> 1184px x 516px
+//iphone 11 pro -> 375 x 812
+//galaxy note 20 -> 412 x 915
+//galaxy s9 -> 360 x 740
+@media (max-width: 600px)
+{
+    .pop-up
+    {
+        margin: 30vh 25vw;
+        *
+        {
+            padding: 10px;
+        }
+    }
+}

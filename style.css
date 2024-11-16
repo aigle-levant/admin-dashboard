@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rye&display=swap");
+:root {
+  --rich-black: #0E131F;
+  --alice-blue: #DFE5F1;
+  --penn-blue: #171B4F;
+  --ivory: #F1F4E4;
+  --dark-moss-green: #4F4F1B;
+  --periwinkle: #B0B8E8;
+  --sage: #B0B79A;
+  --citron: #BFBF6F;
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body.light-mode {
+  background-color: var(--alice-blue);
+  color: var(--rich-black);
+}
+body.light-mode .btn {
+  background-color: var(--periwinkle);
+  color: var(--rich-black);
+}
+body.light-mode a {
+  color: var(--rich-black);
+}
+body.light-mode .pop-up {
+  background-color: var(--citron);
+  color: var(--rich-black);
+}
+body.light-mode .side-bar {
+  background-color: var(--periwinkle);
+  color: var(--rich-black);
+}
+body.light-mode .books {
+  background-color: var(--citron);
+  color: var(--rich-black);
+}
+body.light-mode .books .last-read, body.light-mode .books .book-shelf-content {
+  background-color: var(--ivory);
+  color: var(--rich-black);
+}
+body.light-mode .quotes .underline {
+  background-color: var(--rich-black);
+}
+body.light-mode .quotes .quotes-content {
+  background-color: var(--sage);
+  color: var(--rich-black);
+}
+body.light-mode .quotes .quotes-content .quote {
+  background-color: var(--ivory);
+  color: var(--rich-black);
+  border: 1px solid var(--alice-blue);
+}
+body.light-mode .attribution {
+  background-color: var(--citron);
+}
+body.dark-mode {
+  background-color: var(--rich-black);
+  color: var(--alice-blue);
+}
+body.dark-mode .btn {
+  background-color: var(--ivory);
+  color: var(--rich-black);
+}
+body.dark-mode a {
+  color: var(--alice-blue);
+}
+body.dark-mode .pop-up {
+  background-color: var(--dark-moss-green);
+  color: var(--alice-blue);
+}
+body.dark-mode .side-bar {
+  background-color: var(--penn-blue);
+  color: var(--alice-blue);
+}
+body.dark-mode .books {
+  background-color: var(--dark-moss-green);
+  color: var(--alice-blue);
+}
+body.dark-mode .books .last-read, body.dark-mode .books .book-shelf-content {
+  background-color: var(--ivory);
+  color: var(--rich-black);
+}
+body.dark-mode .quotes .underline {
+  background-color: var(--alice-blue);
+}
+body.dark-mode .quotes .quotes-content {
+  background-color: var(--dark-moss-green);
+  color: var(--alice-blue);
+}
+body.dark-mode .quotes .quotes-content .quote {
+  background-color: var(--rich-black);
+  color: var(--alice-blue);
+  border: 1px solid var(--penn-blue);
+}
+body.dark-mode .attribution {
+  background-color: var(--dark-moss-green);
+}
+body .heading, body .sub-heading {
+  font-family: "Rye", serif;
+}
+
+.pop-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quotes .quotes-content {
+  display: grid;
+  grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  row-gap: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--penn-blue);
+  color: var(--alice-blue);
+  transition: all 0.3s;
+}
+.btn:focus {
+  background-color: var(--alice-blue);
+}
+
+.pop-up {
+  flex-direction: column;
+  margin: 30vh 35vw;
+}
+.pop-up * {
+  padding: 5px;
+  margin: 10px 0;
+}
+.pop-up .btn {
+  border: none;
+  padding: 10px 30px;
+}
+
+.main {
+  display: flex;
+}
+
+.side-bar {
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  height: 137vw;
+  text-align: center;
+}
+.side-bar * {
+  padding: 13.5px 10px;
+}
+.side-bar .img-btn {
+  padding: 20px;
+}
+.side-bar .img {
+  width: 60px;
+  height: 60px;
+}
+
+.main-content .header {
+  padding-left: 5vw;
+  padding-top: 2vw;
+}
+.main-content .books {
+  margin: 5vw;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.books .last-read {
+  margin: 0 5vw 0 4vw;
+  padding: 20px;
+}
+.books .book-content .sub-heading {
+  margin-bottom: 4vh;
+}
+.books .cover-img {
+  width: 25vh;
+  padding: 10px;
+}
+.books .book-shelf-content {
+  display: grid;
+  grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+}
+.books .book-shelf-content * {
+  padding-top: 10px;
+}
+
+.quotes {
+  padding: 3vw;
+  margin: 0 0 3vw 3vw;
+}
+.quotes .header-text-quotes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.quotes .header-text-quotes .underline {
+  width: 140vh;
+  height: 5px;
+}
+.quotes .quotes-content {
+  padding: 10px;
+}
+.quotes .quotes-content .quote {
+  padding: 1vw;
+}
+
+.attribution {
+  padding: 10px;
+}
+.attribution .sub-heading {
+  margin: 1vw 0 1vw 23vw;
+}
+
+@media (max-width: 600px) {
+  .pop-up {
+    margin: 30vh 25vw;
+  }
+  .pop-up * {
+    padding: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
